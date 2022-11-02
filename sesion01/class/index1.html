@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio1_JavaScript</title>
+</head>
+
+<body>
+  <script>
+    var capital, periodo, interes, cuota, montototal;
+    const tasa = 0.08;
+    var dni, cliente;
+
+    dni = prompt("Ingresar DNI")
+    cliente = prompt("Ingresar Cliente: ")
+    capital = parseFloat(prompt("Ingrese el capital: "))
+    periodo = parseInt(prompt("Ingrese el periodo: "))
+
+    interes = capital * tasa * periodo
+    montototal = capital + interes
+    cuota = montototal / periodo
+
+    document.write(`
+    Resultados del financiamiento son <br>
+    <hr>
+    DNI: ${dni}
+    <br>
+    Cliente: ${cliente}
+    <br>
+    Capital: ${capital}
+    <br>
+    Tasa: ${tasa * 100}%
+    <br>
+    Periodo: ${periodo}
+    <br>
+    Interes: ${interes}
+    <br>
+    Monto total: ${montototal}
+    <br>
+    Cuota: ${cuota.toFixed(2)}
+    `);
+  </script>
+
+</body>
+
+</html>
