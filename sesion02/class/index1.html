@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let alumno;
+    let nt1, nt2, nt3, promedio, nmy, nmn;
+    let condicion, estado;
+
+    alumno = prompt("Ingresar alumno: ")
+    nt1 = parseFloat(prompt("Ingresar nota 1: "))
+    nt2 = parseFloat(prompt("Ingresar nota 2: "))
+    nt3 = parseFloat(prompt("Ingresar nota 3: "))
+
+    nmy = nt1
+
+    if (nt2 > nmy) {
+      nmy = nt2
+    }
+    if (nt3 > nmy) {
+      nmy = nt3
+    }
+    nmn = nt1
+    if (nt2 < nmn) {
+      nmy = nt2
+    }
+    if (nt3 < nmy) {
+      nmn = nt3
+    }
+
+    promedio = (nt1 + nt2 + nt3) / 3
+    if (promedio >= 10.5) {
+      condicion = "Aprobado"
+    } else {
+      condicion = "Desaprobado"
+    }
+
+
+    if (promedio <= 5) {
+      estado = "Pésimo"
+    } else if (promedio <= 10) {
+      estado = "Malo"
+    } else if (promedio <= 15) {
+      estado = "Regular"
+    } else if (promedio <= 18) {
+      estado = "Bueno"
+    } else if (promedio <= 20) {
+      estado = "Excelente"
+    }
+
+    document.write(`
+    <h1>Datos de la operación: </h1>
+    <hr>
+    Alumno: ${alumno}
+    <br>
+    Nota 1: ${nt1}
+    <br>
+    Nota 2: ${nt2}
+    <br>
+    Nota 3: ${nt3}
+    <br>
+    <h1>Resultados estadísticos</h1>
+    <hr>
+    Promedio: ${promedio}
+    <br>
+    Nota mayor: ${nmy}
+    <br>
+    Nota menor: ${nmn}
+    <br>
+    Condicion: ${condicion}
+    <br>
+    Estado: ${estado}
+    `)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let nombre, xnom, asignatura;
+    let promedio, i, j, sn, xpmayor
+
+    xpmayor = 0
+    sn = 0
+    for (i = 1; i <= 3; i++) {
+      nombre = prompt("Ingresar alumno: ")
+      document.write(`Alumno ${nombre} <br>`)
+      for (j = 1; j <= 3; j++) {
+        asignatura = parseInt(prompt("Ingresar nota de la asignatura: "))
+        sn += asignatura
+        document.write(`Notas : ${asignatura} <br>`)
+      }
+      promedio = sn / 3
+      document.write(`Promedio : ${promedio}<br>`)
+      if (promedio > xpmayor) {
+        xnom = nombre
+        xpmayor = promedio
+      }
+      promedio = 0.0
+      sn = 0.0
+    }
+
+    document.write(`
+    <h1>Resultados finales </h1>
+    <hr>
+    Alumno ${xnom}
+    <br>
+    Promedio mayor: ${xpmayor.toFixed(2)}
+    `)
+  </script>
+</body>
+
+</html>

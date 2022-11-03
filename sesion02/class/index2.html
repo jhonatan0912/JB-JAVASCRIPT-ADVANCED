@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Elegir producto</h1>
+  <select onchange="datos()" id="drones">
+    <option selected>Seleccionar</option>
+    <option value="1">Drone1</option>
+    <option value="2">Drone2</option>
+    <option value="3">Drone3</option>
+    <option value="4">Drone4</option>
+    <option value="5">Drone5</option>
+  </select>
+
+  <script>
+    function datos() {
+      let cliente;
+      let cantidad, preciotc;
+      let cbodrones, valor, n, producto;
+      const cigv = 0.18
+      let st, igv, tps, tpd;
+
+      // entrada
+
+      cliente = prompt("Ingresar cliente: ")
+      n = document.getElementById("drones").selectedIndex
+      cbodrones = document.getElementById("drones")
+      producto = cbodrones.options[cbodrones.selectedIndex].text
+      cantidad = parseInt(prompt("Ingresar cantidad: "))
+      tc = parseFloat(prompt("Ingresar tipo de cambio: "))
+
+      // proceso
+      switch (n) {
+        case 1:
+          precio = 3000;
+          imagen = "./img/drone1.jpg"
+          break;
+        case 2:
+          precio = 4000;
+          imagen = "./img/drone2.jpg"
+          break;
+        case 3:
+          precio = 5000;
+          imagen = "./img/drone3.jpg"
+          break;
+        case 4:
+          precio = 5000;
+          imagen = "./img/drone4.jpg"
+          break;
+        case 5:
+          precio = 6000;
+          imagen = "./img/drone5.jpg"
+          break;
+
+        default:
+          mes = "NUmero fuera del intervalo "
+          break;
+      }
+      st = precio * cantidad;
+      igv = st * cigv;
+      tps = st + igv
+      tpd = tps / tc
+
+      //output
+
+      document.write(`
+      <h1>Resultados de la compra de prodcuto:</h1>
+      <hr>
+      Cliente: ${cliente}
+      <br>
+      Producto: ${producto}
+      <br>
+      Precio: ${precio}
+      <br>
+      Cantidad: ${cantidad}
+      <br>
+      Tipo de cambio: ${tc}
+      <hr>
+      <h1>Resultados de la compra del producto</h1>
+      Subtotal: ${st}
+      <br>
+      IGV: ${igv}
+      <br>
+      Total a pagar en soles: ${tps}
+      <br>
+      Total a pagar en dolares: ${tpd}
+      <br><br>
+      <img width="500" src="${imagen}">
+      `)
+    }
+  </script>
+</body>
+
+</html>
