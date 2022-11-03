@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>InnerHTMl controla que puede incluirse en un elemento</p>
+  <p id="salida1"></p>
+  <p id="salida2"></p>
+  <p id="salida3"></p>
+  <script>
+    let num1, num2, resultado1, resultado2, resultado3;
+    let resultado;
+    num1 = window.prompt("Introducir primer número");
+    num2 = window.prompt("Introducir segundo número");
+
+    resultado = parseInt(num1) + parseFloat(num2)
+    resultado1=resultado*2
+    resultado2=resultado*3
+    resultado3=resultado*4
+
+    document.getElementById("salida1").innerHTML=(`El doble es ${resultado1}`)
+    document.getElementById("salida2").innerHTML=(`El triple es ${resultado2}`)
+    document.getElementById("salida3").innerHTML=(`El cuadruple es ${resultado3}`)
+  </script>
+</body>
+
+</html>

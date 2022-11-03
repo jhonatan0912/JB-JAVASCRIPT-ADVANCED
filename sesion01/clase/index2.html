@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var nombre;
+    let ingresos, otrosingresos, gastos;
+    let ahorrom, ahorrot, ahorros, ahorroa
+
+    nombre = prompt("Ingrese su nombre: ")
+    ingresos = parseFloat(prompt("Ingresar sus ingresos: "))
+    otrosingresos = parseFloat(prompt("Ingresar otros ingresos"))
+    gastos = parseFloat(prompt("Ingresar sus gastos: "))
+
+    ahorrom = (ingresos + otrosingresos) - gastos
+    ahorrot = ahorrom * 3
+    ahorros = ahorrom * 6
+    ahorroa = ahorrom * 12
+
+    document.write(`
+    Nombre de la persona: ${nombre}
+    <br>
+    Ahorro mensual: ${ahorrom}
+    <br>
+    Ahorro trimestral : ${ahorrot}
+    <br>
+    Ahorro semestral: ${ahorros}
+    <br>
+    Ahorro anual: ${ahorroa}
+    `)
+  </script>
+</body>
+
+</html>

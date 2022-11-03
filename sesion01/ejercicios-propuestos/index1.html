@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let dni, nombre, venta1, venta2, venta3, venta4, total, promedio;
+
+    dni = prompt("Insertar dni:")
+    nombre = prompt("Insertar nombre:")
+    venta1 = parseInt(prompt("Insertar venta1: "))
+    venta2 = parseInt(prompt("Insertar venta2: "))
+    venta3 = parseInt(prompt("Insertar venta3: "))
+    venta4 = parseInt(prompt("Insertar venta4: "))
+
+    total = venta1 + venta2 + venta3 + venta4;
+    promedio = total / 4
+
+    document.write(`
+    <h1>Resultados</h1> 
+    Dni: ${dni}
+    <br>
+    Nombre: ${nombre}
+    <br>
+    Venta1 : ${venta1}
+    <br>
+    Venta2 : ${venta2}
+    <br>
+    Venta3 : ${venta3}
+    <br>
+    Venta4 : ${venta4}
+    <br>
+    Total : ${total}
+    <br>
+    Promedio : ${promedio}
+    `)
+
+  </script>
+</body>
+
+</html>

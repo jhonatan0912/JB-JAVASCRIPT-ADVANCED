@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio3_JavaScript</title>
+</head>
+
+<body>
+  <h3>Ingresos y Gastos</h3>
+  <p id="ingreso1"></p>
+  <p id="ingreso2"></p>
+  <p id="gasto1"></p>
+  <p id="gasto2"></p>
+  <p id="gasto3"></p>
+
+  <h3>Ahorros</h3>
+  <p id="ahorrom"></p>
+  <p id="ahorrob"></p>
+  <p id="ahorroc"></p>
+  <p id="ahorroa"></p>
+  <script>
+    //Declaración de variables
+    let ingreso1, ingreso2, gasto1, gasto2, gasto3;
+    let ahorrom, ahorrob, ahorroc, ahorroa;
+    //Entrada de datos
+    ingreso1 = parseInt(prompt("Indique su Primer Ingreso: "));
+    ingreso2 = parseInt(prompt("Indique su Segundo Ingreso: "));
+    gasto1 = parseInt(prompt("Indique su Primer Gasto: "));
+    gasto2 = parseInt(prompt("Indique su Segundo Gasto: "));
+    gasto3 = parseInt(prompt("Indique su Tercer Gasto: "));
+    //Proceso de cálculo
+    ahorrom = (ingreso1 + ingreso2) - (gasto1 + gasto2 + gasto3);
+    ahorrob = ahorrom * 2;
+    ahorroc = ahorrom * 4;
+    ahorroa = ahorrom * 12;
+    //Salida de resultado
+    document.getElementById("ingreso1").innerHTML = ("Su Primer Ingreso es: " + ingreso1);
+    document.getElementById("ingreso2").innerHTML = ("Su Segundo Ingreso es: " + ingreso2);
+    document.getElementById("gasto1").innerHTML = ("Su Primer Gasto es: " + gasto1);
+    document.getElementById("gasto2").innerHTML = ("Su Segundo Gasto es: " + gasto2);
+    document.getElementById("gasto3").innerHTML = ("Su Tercer Gasto es: " + gasto3);
+
+    document.getElementById("ahorrom").innerHTML = ("Su Ahorro Mensual es: " + ahorrom);
+    document.getElementById("ahorrob").innerHTML = ("Su Ahorro Bimestral es: " + ahorrob);
+    document.getElementById("ahorroc").innerHTML = ("Su Ahorro Cuatrimestral es: " + ahorroc);
+    document.getElementById("ahorroa").innerHTML = ("Su Ahorro Anual es: " + ahorroa);
+  </script>
+</body>
+
+</html>

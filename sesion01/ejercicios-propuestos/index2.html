@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio2_JavaScript</title>
+</head>
+
+<body>
+  <p id="salida1"></p>
+  <p id="salida2"></p>
+  <p id="salida3"></p>
+  <p id="salida4"></p>
+  <script>
+    //declarar variables
+    let num1, num2, resultado1, resultado2, resultado3, resultado4;
+    //entrada
+    num1 = window.prompt("Introduce un número 1:");
+    num2 = window.prompt("Introduce un número 2:");
+    //proceso
+    resultado1 = parseInt(num1) + parseInt(num2);
+    resultado2 = parseInt(num1) - parseInt(num2);
+    resultado3 = parseInt(num1) * parseInt(num2);
+    resultado4 = parseInt(num1) / parseInt(num2);
+    //salida
+    document.getElementById("salida1").innerHTML = (`La Suma es: ${resultado1}`);
+    document.getElementById("salida2").innerHTML = (`La Resta es: ${resultado2}`);
+    document.getElementById("salida3").innerHTML = (`La Multiplicación es: ${resultado3}`);
+    document.getElementById("salida4").innerHTML = (`La División es: ${resultado4}`);
+  </script>
+</body>
+
+</html>
