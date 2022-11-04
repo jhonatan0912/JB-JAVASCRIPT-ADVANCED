@@ -10,8 +10,96 @@
 
 <body>
   <script>
-    let amount = parseInt(prompt("Insertar "))
-    
+    const tienda = (tipo, cantidad) => {
+      tipo = prompt(`
+      Ingresar tipo de juguete:
+
+      -Monopolio
+      -Ajedrez
+      -Lego
+      -Dama
+      -Laberinto
+      `)
+      cantidad = parseInt(prompt("Insertar cantidad: "))
+      let importeCompra;
+      let descuento;
+
+      if (tipo.toLowerCase().trim() == "monopolio") {
+        importeCompra = (70.99 * cantidad)
+        if (cantidad < 10) {
+          descuento = importeCompra * 0.035
+          total = importeCompra - descuento;
+        } else if (cantidad >= 10 && cantidad <= 20) {
+          descuento = importeCompra * 0.07
+          total = importeCompra - descuento;
+        } else if (cantidad > 20) {
+          descuento = importeCompra * 0.095
+          total = importeCompra - descuento;
+        }
+      } else if (tipo.toLowerCase().trim() == "ajedrez") {
+        importeCompra = (78.99 * cantidad)
+        if (cantidad < 10) {
+          descuento = importeCompra * 0.035
+          total = importeCompra - descuento;
+        } else if (cantidad >= 10 && cantidad <= 20) {
+          descuento = importeCompra * 0.07
+          total = importeCompra - descuento;
+        } else if (cantidad > 20) {
+          descuento = importeCompra * 0.095
+          total = importeCompra - descuento;
+        }
+      } else if (tipo.toLowerCase().trim() == "lego") {
+        importeCompra = (100.99 * cantidad)
+        if (cantidad < 10) {
+          descuento = importeCompra * 0.035
+          total = importeCompra - descuento;
+        } else if (cantidad >= 10 && cantidad <= 20) {
+          descuento = importeCompra * 0.07
+          total = importeCompra - descuento;
+        } else if (cantidad > 20) {
+          descuento = importeCompra * 0.095
+          total = importeCompra - descuento;
+        }
+      } else if (tipo.toLowerCase().trim() == "dama") {
+        importeCompra = (58.50 * cantidad)
+        if (cantidad < 10) {
+          descuento = importeCompra * 0.035
+          total = importeCompra - descuento;
+        } else if (cantidad >= 10 && cantidad <= 20) {
+          descuento = importeCompra * 0.07
+          total = importeCompra - descuento;
+        } else if (cantidad > 20) {
+          descuento = importeCompra * 0.095
+          total = importeCompra - descuento;
+        }
+      } else if (tipo.toLowerCase().trim() == "laberinto") {
+        importeCompra = (35.00 * cantidad)
+        if (cantidad < 10) {
+          descuento = importeCompra * 0.035
+          total = importeCompra - descuento;
+        } else if (cantidad >= 10 && cantidad <= 20) {
+          descuento = importeCompra * 0.07
+          total = importeCompra - descuento;
+        } else if (cantidad > 20) {
+          descuento = importeCompra * 0.095
+          total = importeCompra - descuento;
+        }
+      }
+      document.write(`
+      <h1>Resultado</h1>
+      Producto: ${tipo}
+      <br>
+      Cantidad: ${cantidad}
+      <br>
+      Importe de compra: ${importeCompra.toFixed(2)}
+      <br>
+      Descuento: ${descuento.toFixed(2)}
+      <br>
+      Importe a pagar: ${total.toFixed(2)}
+      `)
+
+    }
+    tienda()
   </script>
 </body>
 
