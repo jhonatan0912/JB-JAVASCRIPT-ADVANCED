@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let number = prompt("Insertar numero de tres cifras:").split("")
+
+    if (number.length == 3 && number[0] == number[1] || number[0] == number[2]) {
+      let op1 = Math.sqrt(number[0])
+      let op2 = Math.sqrt(number[1])
+      let op3 = Math.sqrt(number[2])
+      let total1 = op1 + op2 + op3
+      document.write(`
+      <h1>Resultados</h1>
+      <hr>
+      Numero 1: ${number[0]} | Raiz: ${op1}
+      <br>
+      Numero 2: ${number[1]} | Raiz: ${op2}
+      <br>
+      Numero 3: ${number[2]} | Raiz: ${op3}
+      <br>
+      Suma de raices: ${total1}
+      `)
+    } else if (number.length != 3 && number[0] != number[1] || number[0] != number[2]) {
+      let op4 = Math.pow(number[0], 2)
+      let op5 = Math.pow(number[1], 2)
+      let op6 = Math.pow(number[2], 2)
+      let total2 = op4 + op5 + op6
+      document.write(`
+      <h1>Resultados</h1>
+      <hr>
+      Numero 1: ${number[0]} | Potencia: ${op4}
+      <br>
+      Numero 2: ${number[1]} | Potencia: ${op5}
+      <br>
+      Numero 3: ${number[2]} | Potencia: ${op6}
+      <br>
+      Suma de potencias: ${total2}
+      `)
+    }
+
+  </script>
+</body>
+
+</html>
