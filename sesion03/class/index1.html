@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let usuario, an;
+
+    const hoy = new Date()
+
+    function bienvenida1() {
+      document.write(`Bienvenido al portal web <br>`)
+    }
+
+    document.write(`<h1>Funciones sin parametros</h1> <br>`)
+    bienvenida1()
+    bienvenida1()
+    bienvenida1()
+    document.write(`<br><br><h1>Funciones con parametros</h1> <br>`)
+
+    function bienvenida2(xusuario, xedad) {
+      document.write(`
+      Bienvenido al portal web ${xusuario} <br>
+      Su edad es: ${xedad}
+      `)
+    }
+    usuario = prompt("Ingrese su nombre de usuario: ")
+    an = parseInt(prompt("Ingrese su año de nacimiento: "))
+    edad = hoy.getFullYear() - an
+    bienvenida2(usuario, edad)
+  </script>
+
+</body>
+
+</html>

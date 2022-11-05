@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Uso de funciones con retorno de valores</h1>
+  <p>Ingresar una cantidad</p>
+  <input type="number" id="txtcantidad" pattern="[0-9]+">
+  <br>
+  <p>Cantidad invertida</p>
+  <input type="number" id="txtcantinv" pattern="[0-9]+">
+  <br>
+  <br>
+  <input type="button" value="Ejecutar" onclick="programa()">
+  <script src="./javascript3.js"></script>
+  <script>
+    function programa() {
+      let cant, cantinv
+      cant = parseInt(document.getElementById("txtcantidad").value)
+      cantinv = finvertir(cant)
+      document.getElementById("txtcantinv").value = cantinv
+    }
+  </script>
+</body>
+
+</html>

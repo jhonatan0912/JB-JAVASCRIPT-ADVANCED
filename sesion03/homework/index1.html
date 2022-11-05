@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    const esPrimo = numero => {
+
+      if (numero == 0 || numero == 1 || numero == 4) return false;
+
+      for (let x = 2; x < numero / 2; x++) {
+        if (numero % x == 0) return false;
+      }
+
+      return true;
+    }
+
+
+  </script>
+
+</body>
+
+</html>

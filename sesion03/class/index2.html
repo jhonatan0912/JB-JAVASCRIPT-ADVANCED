@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function ftotal(xventa1, xventa2, xventa3) {
+      return (xventa1 + xventa2 + xventa3)
+    }
+
+    function promedio(xtotal) {
+      return (xtotal / 3)
+    }
+
+    function fventamayor(xventa1, xventa2, xventa3) {
+      let mayor;
+      mayor = xventa1
+
+      if (xventa2 > mayor) {
+        mayor = xventa2
+      }
+      if (xventa3 > mayor) {
+        mayor = xventa3
+      }
+      return mayor
+    }
+    let vendedor;
+    let venta1, venta2, venta3
+    let totalventa, promedioventa, ventamayor;
+
+    vendedor = prompt("Ingresar vendedor: ")
+    venta1 = parseFloat(prompt("Ingresar venta 1: "))
+    venta2 = parseFloat(prompt("Ingresar venta 2: "))
+    venta3 = parseFloat(prompt("Ingresar venta 3: "))
+
+    totalventa = ftotal(venta1, venta2, venta3);
+    promedioventa = promedio(totalventa)
+    ventamayor = fventamayor(venta1, venta2, venta3)
+
+    document.write(`
+    Datos de la operacion <br>
+    <hr>
+    Vendedor: ${vendedor}
+    <br>
+    Venta1: ${venta1}
+    <br>
+    Venta2: ${venta2}
+    <br>
+    Venta3: ${venta3}
+    <br>
+    Resultados estadísticos:
+    <hr>
+    Total: ${totalventa}
+    <br>
+    Promedio: ${promedioventa.toFixed(2)}
+    <br>
+    Venta mayor: ${ventamayor}
+    `)
+
+  </script>
+</body>
+
+</html>
