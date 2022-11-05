@@ -8,10 +8,10 @@
   <title>RELOJ</title>
   <script>
     function reloj() {
-      var hoy = new Date(); //Instanciamiento
-      var h = hoy.getHours(); //devuelve la hora
-      var m = hoy.getMinutes(); //devuelve minutos
-      var s = hoy.getSeconds(); //devuelve segundos
+      var hoy = new Date();
+      var h = hoy.getHours();
+      var m = hoy.getMinutes();
+      var s = hoy.getSeconds();
 
       m = actualizarHora(m);
       s = actualizarHora(s);
@@ -20,7 +20,7 @@
     }
     function actualizarHora(i) {
       if (i < 10) {
-        i = "0" + i; //Añadir el 0 en números menores de 10
+        i = "0" + i;
       }
       return i;
     }
