@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let num1, num2, num3
+    let entero
+
+    num1 = Math.floor(Math.random() * 10)
+    num2 = Math.floor(Math.random() * 10)
+    num3 = Math.floor(Math.random() * 10)
+
+    mayor = Math.max(num1, num2, num3)
+    menor = Math.min(num1, num2, num3)
+
+    entero = Math.round(num1)
+    raiz = Math.sqrt(num1)
+    potencia = Math.pow(num1, num2)
+
+    document.write(`
+    <h1>Datos de la operacion</h1>
+    <hr>
+    Número 1 : ${num1}
+    <br>
+    Número 2 : ${num2}
+    <br>
+    Número 3 : ${num3}
+    <br>
+    Resultados estadísticos
+    <br>
+    <hr>
+    Mayor: ${mayor}
+    <br>
+    Menor: ${menor}
+    <br>
+    Entero: ${entero}
+    <br>
+    Raiz crudrada: ${raiz}
+    <br>
+    Potencia: ${potencia}
+    `)
+  </script>
+</body>
+
+</html>
