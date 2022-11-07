@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <form action="#">
+    <label for="#">
+      Cantidad de horas trabajadas:
+      <input type="number" id="horas-trabajadas">
+    </label>
+    <label for="#">
+      Categoria:
+      A<input type="radio" name="categoria" class="categoria" value="a">
+      B<input type="radio" name="categoria" class="categoria" value="b">
+      C<input type="radio" name="categoria" class="categoria" value="c">
+    </label>
+    <label for="#">
+      Años de servicio:
+      1-3<input type="radio" name="años-servicio" class="años-servicio" value="1-3">
+      4-7<input type="radio" name="años-servicio" class="años-servicio" value="4-7">
+      8-12<input type="radio" name="años-servicio" class="años-servicio" value="8-12">
+      13-más<input type="radio" name="años-servicio" class="años-servicio" value="13-mas">
+    </label>
+
+    <input type="submit" value="Calcular" id="btn-calcular">
+  </form>
+
+  <script>
+    let btnCalcular = document.getElementById("btn-calcular")
+
+    btnCalcular.addEventListener("click", (horasTrabajadas, categoria, añosServicio) => {
+      horasTrabajadas = document.getElementById("horas-trabajadas").value;
+      categoria = document.querySelector('input[name="categoria"]:checked').value;
+      añosServicio = document.querySelector('input[name="años-servicio"]:checked').value;
+
+      let tarifa;
+      let bonificacion;
+      let sueldoBasico;
+      let sueldoNeto;
+
+      if (categoria == "a") {
+        tarifa = 40;
+        sueldoBasico = horasTrabajadas * tarifa;
+        if (añosServicio == "1-3") {
+          bonificacion = sueldoBasico * 0.15;
+          sueldoNeto = sueldoBasico + bonificacion;
+        } else if (añosServicio == "4-7") {
+          bonificacion = sueldoBasico * 0.2
+          sueldoNeto = sueldoBasico + bonificacion
+        } else if (añosServicio == "8-12") {
+          bonificacion = sueldoBasico * 0.3
+          sueldoNeto = sueldoBasico + bonificacion
+        } else if (añosServicio == "13-mas") {
+          bonificacion = sueldoBasico * 0.35
+          sueldoNeto = sueldoBasico + bonificacion
+        }
+        document.write(`
+        <h1>Resultado: </h1
+        Sueldo basico: ${sueldoBasico}
+        <br>
+        Bonificacion: ${bonificacion}
+        <br>
+        Sueldo neto: ${sueldoNeto}
+        `)
+      } else if (categoria == "b") {
+        tarifa = 35;
+        sueldoBasico = horasTrabajadas * tarifa
+        if (añosServicio == "1-3") {
+          bonificacion = sueldoBasico * 0.15;
+          sueldoNeto = sueldoBasico + bonificacion;
+        } else if (añosServicio == "4-7") {
+          bonificacion = sueldoBasico * 0.2
+          sueldoNeto = sueldoBasico + bonificacion
+        } else if (añosServicio == "8-12") {
+          bonificacion = sueldoBasico * 0.3
+          sueldoNeto = sueldoBasico + bonificacion
+        } else if (añosServicio == "13-mas") {
+          bonificacion = sueldoBasico * 0.35
+          sueldoNeto = sueldoBasico + bonificacion
+        }
+        document.write(`
+        <h1>Resultado: </h1
+        Sueldo basico: ${sueldoBasico}
+        <br>
+        Bonificacion: ${bonificacion}
+        <br>
+        Sueldo neto: ${sueldoNeto}
+        `)
+      } else if (categoria == "c") {
+        tarifa = 30;
+        sueldoBasico = horasTrabajadas * tarifa
+        if (añosServicio == "1-3") {
+          bonificacion = sueldoBasico * 0.15;
+          sueldoNeto = sueldoBasico + bonificacion;
+        } else if (añosServicio == "4-7") {
+          bonificacion = sueldoBasico * 0.2
+          sueldoNeto = sueldoBasico + bonificacion
+        } else if (añosServicio == "8-12") {
+          bonificacion = sueldoBasico * 0.3
+          sueldoNeto = sueldoBasico + bonificacion
+        } else if (añosServicio == "13-mas") {
+          bonificacion = sueldoBasico * 0.35
+          sueldoNeto = sueldoBasico + bonificacion
+        }
+        document.write(`
+        <h1>Resultado: </h1
+        Sueldo basico: ${sueldoBasico}
+        <br>
+        Bonificacion: ${bonificacion}
+        <br>
+        Sueldo neto: ${sueldoNeto}
+        `)
+      }
+    })
+  </script>
+</body>
+
+</html>
