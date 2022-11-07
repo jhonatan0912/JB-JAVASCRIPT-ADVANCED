@@ -61,7 +61,7 @@
         <input type="date" name="fecha" id="fecha">
       </label>
     </fieldset>
-    
+
     <fieldset>
       <legend>Datos academicos del alumno</legend>
 
@@ -148,13 +148,13 @@
 
       <label for="grados-academicos">Grados academicos
         <div>
-          Técnico<input type="checkbox" name="grados-academicos" value="1">
-          Bachiller<input type="checkbox" name="grados-academicos" value="1">
-          Maestría<input type="checkbox" name="grados-academicos" value="1">
-          Doctorado<input type="checkbox" name="grados-academicos" value="1">
+          Técnico<input type="checkbox" name="grados-academicos" value="1" class="grados-academicos">
+          Bachiller<input type="checkbox" name="grados-academicos" value="1" class="grados-academicos">
+          Maestría<input type="checkbox" name="grados-academicos" value="1" class="grados-academicos">
+          Doctorado<input type="checkbox" name="grados-academicos" value="1" class="grados-academicos">
         </div>
       </label>
-      
+
     </fieldset>
     <input type="reset" value="Resetear">
     <input type="submit" value="Enviar" id="btnEnviar">
@@ -186,12 +186,39 @@
       reaccionProblemaEntornoSocial = document.getElementById('reaccion-problema-entorno-social').selectedIndex
       influenciaStressEnLaVidaAcademica = document.getElementById('influencia-stress-vida-academica').selectedIndex
       nivelEmpatiaCompañeros = document.getElementById('nivel-empatia-compañeros').selectedIndex
-      tipoEstablecimientoEstudioPrimario = document.querySelector('input[name="tipo-establecimiento-estudio-primario"]').selectedIndex
-      tipoEstablecimientoEstudioSecundario = document.querySelector('input[name="tipo-establecimiento-estudio-secundario"]').selectedIndex
-      gradosAcademicos = document.querySelector('input[name="grados-academicos"]').selectedIndex
+      tipoEstablecimientoEstudioPrimario = document.querySelector('input[name="tipo-establecimiento-estudio-primario"]:checked').value
+      tipoEstablecimientoEstudioSecundario = document.querySelector('input[name="tipo-establecimiento-estudio-secundario"]:checked').value
+      gradosAcademicos = document.querySelectorAll('.grados-academicos:checked').length
       // Fin datos adicionales del alumno
 
-      console.log(tipoEstablecimientoEstudioPrimario, tipoEstablecimientoEstudioSecundario, gradosAcademicos);
+      let total = 0;
+
+      if (carreraProfesional != 0 && actitudResponsable != 0 && personaInteligente != 0 && reaccionProblemaEntornoSocial && influenciaStressEnLaVidaAcademica != 0 && nivelEmpatiaCompañeros != 0) {
+        total = parseInt(carreraProfesional) +
+          parseInt(actitudResponsable) +
+          parseInt(personaInteligente) +
+          parseInt(reaccionProblemaEntornoSocial) +
+          parseInt(influenciaStressEnLaVidaAcademica) +
+          parseInt(nivelEmpatiaCompañeros) +
+          parseInt(tipoEstablecimientoEstudioPrimario) +
+          parseInt(tipoEstablecimientoEstudioSecundario) +
+          parseInt(gradosAcademicos)
+      }
+      let rendimiento;
+      if (total < 15) {
+        rendimiento = "Bajo"
+      } else if (total < 25) {
+        rendimiento = "Medio"
+      } else if (total < 40) {
+        rendimiento = "Alto"
+      }
+
+      document.write(`
+      <h1>Resultado:</h1>
+      Rendimiento personal y académico: ${rendimiento}
+      <br>
+      Puntaje: ${total}
+      `)
     })
 
   </script>
