@@ -9,7 +9,7 @@
   <title>Document</title>
 </head>
 
-<body> 
+<body>
 
   <form action="#" id="form">
     <h1>VALIDACIÓN DE FORMULARIOS</h1>
@@ -17,7 +17,10 @@
     <div class="label__container">
       <label for="user">
         <p>Usuario</p>
-        <input type="text" name="user" id="user">
+        <div class="user-input-span">
+          <input type="text" name="user" id="user">
+          <span class="user-icon">x</span>
+        </div>
       </label>
 
       <label for="Name">
@@ -41,25 +44,34 @@
 
   <script>
     let form = document.getElementById('form')
-    form.addEventListener('submit', (user, name, password, passwordRepeat) => {
-      user = document.getElementById('user').value
-      name = document.getElementById('name').value
-      password = document.getElementById('password').value
-      passwordRepeat = document.getElementById('repeat-password').value
+    // form.addEventListener('submit', (user, name, password, passwordRepeat) => {
+    //   user = document.getElementById('user')
+    //   name = document.getElementById('name')
+    //   password = document.getElementById('password')
+    //   passwordRepeat = document.getElementById('repeat-password')
 
-      let errorPasswordRepeat = document.getElementById('error-password-repeat')
-      let error;
-      if (user.length < 4 || user.length > 16) {
-        error = "El usuario tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo"
-      }
-      if (password != passwordRepeat) {
-        error = "Ambas contraseñas deben ser iguales"
-        errorPasswordRepeat.innerHTML = error;
+    //   let errorPasswordRepeat = document.getElementById('error-password-repeat')
+    //   let error;
+    //   if (user.length < 4 || user.length > 16) {
+    //     error = "El usuario tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo"
+    //   }
+    //   if (password != passwordRepeat) {
+    //     error = "Ambas contraseñas deben ser iguales"
+    //     errorPasswordRepeat.innerHTML = error;
+    //   }
+    // })
+
+    const user = document.getElementById('user')
+    user.addEventListener('change', () => {
+      if (user.value.length < 4 || user.value.length > 16) {
+        user.style.border = '2px solid red'
+        let error = "El usuario tiene que ser de 4 a 16 dígitos y solo contener números, letras y guión bajo"
+      } else {
+        user.style.border = '2px solid #57bde6'
       }
     })
 
-    const validation = () => {
-    }
+
   </script>
 </body>
 

@@ -32,3 +32,32 @@ button {
   display: block;
   padding: 1em;
 }
+
+input {
+  outline: none;
+}
+
+.user-input-span {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-icon {
+  display: none;
+}
+
+.user-invalid {
+  position: absolute;
+  top: 10%;
+  color: white;
+  right: 26%;
+  font-size: .6em;
+  line-height: 1.5em;
+  background: red;
+  border-radius: 50%;
+  width: 15px;
+  text-align: center;
+  font-weight: bolder;
+}
