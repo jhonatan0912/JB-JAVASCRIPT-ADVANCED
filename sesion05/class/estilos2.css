@@ -1,0 +1,12 @@
+form {
+  width: 30%;
+  margin: 2em auto;
+  padding: 1em;
+  border: 1px solid #202020;
+  border-radius: 8px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
