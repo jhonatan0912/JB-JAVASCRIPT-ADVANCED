@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="app.css">
+  <title>Document</title>
+</head>
+
+<body> 
+
+  <form action="#" id="form">
+    <h1>VALIDACIÓN DE FORMULARIOS</h1>
+
+    <div class="label__container">
+      <label for="user">
+        <p>Usuario</p>
+        <input type="text" name="user" id="user">
+      </label>
+
+      <label for="Name">
+        <p>Nombre</p>
+        <input type="text" name="name" id="name">
+      </label>
+
+      <label for="password">
+        <p>Contraseña</p>
+        <input type="password" name="password" id="password">
+      </label>
+
+      <label for="repeat-password">
+        <p>Repetir contraseña</p>
+        <input type="password" name="repeat-password" id="repeat-password">
+        <span id="error-password-repeat"></span>
+      </label>
+    </div>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    let form = document.getElementById('form')
+    form.addEventListener('submit', (user, name, password, passwordRepeat) => {
+      user = document.getElementById('user').value
+      name = document.getElementById('name').value
+      password = document.getElementById('password').value
+      passwordRepeat = document.getElementById('repeat-password').value
+
+      let errorPasswordRepeat = document.getElementById('error-password-repeat')
+      let error;
+      if (user.length < 4 || user.length > 16) {
+        error = "El usuario tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo"
+      }
+      if (password != passwordRepeat) {
+        error = "Ambas contraseñas deben ser iguales"
+        errorPasswordRepeat.innerHTML = error;
+      }
+    })
+
+    const validation = () => {
+    }
+  </script>
+</body>
+
+</html>

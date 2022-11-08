@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Formulario de Registro de clientes</title>
+  <link rel="stylesheet" href="estilos1.css">
+  <script>
+    function deshabilita() {
+      document.getElementById("xoculabc").disabled = true;
+      document.getElementById("xtolc").disabled = true;
+      document.getElementById("xibmc").disabled = true;
+    }
+    function habilita() {
+      n = document.getElementById("xestadocivil").selectedIndex;
+      if (n == 4) {
+        document.getElementById("xoculabc").disabled = false;
+        document.getElementById("xtolc").disabled = false;
+        document.getElementById("xibmc").disabled = false;
+      } else {
+        document.getElementById("xoculabc").disabled = true;
+        document.getElementById("xtolc").disabled = true;
+        document.getElementById("xibmc").disabled = true;
+      }
+    }
+    function riesgocrediticio() {
+      let edad, vivienda, nivelinst, oculab, ibm, mtp, mtc;
+      let puntaje, resultado;
+
+      puntaje = 0;
+      edad = parseInt(document.getElementById("xedad").value);   //3
+      vivienda = document.getElementById("xvivienda");  //3
+      puntaje = parseInt(vivienda.options[vivienda.selectedIndex].value);
+      //edad del cliente
+      if (edad >= 18 && edad <= 25) {
+        puntaje = puntaje + 1;
+      } else if (edad >= 26 && edad <= 40) {
+        puntaje = +puntaje + 2;
+      } else {
+        puntaje = +puntaje + 3;
+      }
+      //ingreso bruto mensual
+      if (ibm >= 1025 && ibm <= 2000) {  //3
+        puntaje = +puntaje + 1;
+      } else if (ibm > 2000 && ibm <= 4000) {
+        puntaje = +puntaje + 2;
+      } else if (ibm > 4000) {
+        puntaje = +puntaje + 3;
+      }
+      //Tipo de nivel de instrucción
+      puntaje = puntaje + parseInt(document.getElementById("xnivelinstruccion").selectedIndex);//4 
+      //Prestamos en entidades financieras
+      if (document.getElementById("opcion5").checked) {
+        puntaje = puntaje + 1;
+      } else if (document.getElementById("opcion6").checked) {
+        puntaje = puntaje + 2;
+      }
+      //garantía
+      if (document.getElementById("verificacion1").checked) {
+        puntaje = puntaje + 1;
+      }
+      if (document.getElementById("verificacion2").checked) {
+        puntaje = puntaje + 1;
+      }
+      if (document.getElementById("verificacion3").checked) {
+        puntaje = puntaje + 1;
+      }
+      //Deposito a Plazo fijo:
+      if (document.getElementById("opcion9").checked) {
+        puntaje = puntaje + 2;
+      } else if (document.getElementById("opcion10").checked) {
+        puntaje = puntaje + 1;
+      }
+      //se determina el riesgo crediticio de un cliente
+      if (puntaje < 10) {
+        resultado = "Alto Riesgo crediticio";
+      } if (puntaje < 17) {
+        resultado = "Medio Riesgo crediticio";
+      } else {
+        resultado = "Bajo Riesgo crediticio";
+      }
+      alert(puntaje);
+      alert(resultado);
+    }
+  </script>
+</head>
+
+<body onload="deshabilita()">
+  <form action="" method="">
+    <table class="registro" width="950px" border="1px">
+      <tr style="background-color:#2c3e50;color:aliceblue;">
+        <td id="reg1" colspan="5">
+          <center>Registro de los datos de clientes</center>
+        </td>
+      </tr>
+      <tr style="background-color:#2c3e50;color:aliceblue;">
+        <td id="reg2" colspan="5">Datos personales del cliente</td>
+      </tr>
+      <tr>
+        <td>DNI:<br>
+          <input type="text" id="dni" name="xdni" maxlength="8" pattern="[0-9]+" required />
+        </td>
+        <td>Nombres:<br>
+          <input type="text" name="xnombres" pattern="[a-z,A-Z]+" required />
+        </td>
+        <td colspan="3">Fecha Registro:<br>
+          <input type="date" name="xfecha" />
+        </td>
+      </tr>
+      <tr>
+        <td>Dirección:<br>
+          <input type="text" name="xdireccion" required />
+        </td>
+        <td>Distrito:<br>
+          <select name="xdis">
+            <option selected>Seleccionar</option>
+            <option value="1">Ancón</option>
+            <option value="2">Ate</option>
+            <option value="3">Barranco</option>
+            <option value="4">Breña</option>
+            <option value="5">Carabayllo</option>
+          </select>
+          <br>
+        </td>
+        <td>Correo<br>
+          <input type="email" name="xcorreo" />
+        </td>
+        <td>Teléfono<br>
+          <input type="tel" name="xtel" maxlength="8" pattern="[0-9]{3}[-]{1}[0-9]{4}" />
+        </td>
+        <td>Celular:<br>
+          <input type="cel" name="xcel" maxlength="9" pattern="[0-9]+" />
+        </td>
+      </tr>
+      <tr>
+        <br>
+        <td>Edad<br>
+          <input type="number" id="xedad" />
+        </td>
+        <td>Genero<br>
+          <input type="radio" id="opcion1" name="contact" />
+          <label>Masculino</label>
+          <input type="radio" id="opcion2" name="contact" />
+          <label>Femenino</label>
+        </td>
+        <br>
+        <td>Estado Civil:<br>
+          <select id="xestadocivil" onclick="habilita()">
+            <option selected>Seleccionar</option>
+            <option value="1">Soltero</option>
+            <option value="2">Divorciado</option>
+            <option value="3">Viudo</option>
+            <option value="4">Casado</option>
+          </select>
+        </td>
+        <td>Tipo Vivienda:<br>
+          <select id="xvivienda">
+            <option selected>Seleccionar</option>
+            <option value="1">Alquilada</option>
+            <option value="2">Familia</option>
+            <option value="3">Propia</option>
+          </select>
+          <br>
+        </td>
+        <td colspan="2">Nivel Instrucción:<br>
+          <select id="xnivelinstruccion">
+            <option selected>Seleccionar</option>
+            <option value="1">Primaria</option>
+            <option value="2">Secundaria</option>
+            <option value="3">Técnica</option>
+            <option value="4">Universitaria</option>
+          </select>
+        </td>
+      </tr>
+      <tr style="background-color:#2c3e50;color:aliceblue;">
+        <td id="reg3" colspan="5">Datos laborales del cliente</td>
+      </tr>
+      <tr>
+        <td>Cargo laboral<br>
+          <select id="xoculab">
+            <option selected>Seleccionar</option>
+            <option value="1">Empleado</option>
+            <option value="2">Ejecutivo</option>
+            <option value="3">Funcionario</option>
+            <option value="4">Gerente General</option>
+          </select>
+        </td>
+        <td>Tiempo ocupación Laboral<br>
+          <select name="xtol">
+            <option selected>Seleccionar</option>
+            <option value="1">1-3</option>
+            <option value="2">4-5</option>
+            <option value="3">6..más</option>
+          </select>
+        </td>
+        <td colspan="2">Modalidad de Contrato<br>
+          <input type="radio" id="opcion3" name="mc1" value="1" />
+          <label>Tiempo Parcial</label>
+          <input type="radio" id="opcion4" name="mc1" value="2" />
+          <label>Tiempo Completo</label>
+        </td>
+        <td>Ingresos bruto mensual<br>
+          <input type="number" name="xibm" pattern="[0-9]+" required />
+        </td>
+      </tr>
+      <tr style="background-color:#2c3e50;color:aliceblue;">
+        <td id="reg4" colspan="5">Datos laborales del conyugue</td>
+      <tr>
+        <td>Cargo laboral<br>
+          <select id="xoculabc">
+            <option selected>Seleccionar</option>
+            <option value="1">Empleado</option>
+            <option value="2">Ejecutivo</option>
+            <option value="3">Funcionario</option>
+            <option value="4">Gerente General</option>
+          </select>
+        </td>
+        <td>Tiempo ocupación Laboral<br>
+          <select id="xtolc">
+            <option selected>Seleccionar</option>
+            <option value="1">1-3</option>
+            <option value="2">4-5</option>
+            <option value="3">6..más</option>
+          </select>
+        </td>
+        <td>Ingresos bruto mensual<br>
+          <input type="number" id="xibmc" pattern="[0-9]+" required />
+        </td>
+      </tr>
+      <tr style="background-color:#2c3e50;color:aliceblue;">
+        <td id="reg5" colspan="5">Datos financieros del cliente</td>
+      </tr>
+      <tr>
+        <td>Prestamos en entidades financieras:<br>
+          <input type="radio" id="opcion5" name="mc2" value="1" />
+          <label>Si</label>
+          <input type="radio" id="opcion6" name="mc2" value="2" />
+          <label>No</label>
+        </td>
+        <td>Garantía:Bienes,Casa,Vehículo:<br>
+          <input type="checkbox" id="verificacion1" name="cb2" value="1">
+          <label>Casa</label>
+          <input type="checkbox" id="verificacion2" name="cb2" value="1">
+          <label>Vehículo</label>
+          <input type="checkbox" id="verificacion3" name="cb2" value="1">
+          <label>Otros</label>
+        </td>
+        <td>Deposito a Plazo fijo:<br>
+          <input type="radio" id="opcion9" name="mc3" value="2" />
+          <label>Si</label>
+          <input type="radio" id="opcion10" name="mc3" value="1" />
+          <label>No</label>
+        </td>
+      </tr>
+      </tr>
+    </table>
+    <input type="reset" name="bt1" id="btnlimpiar" value="Limpiar" />
+    <input type="button" name="bt2" id="btnenviar" onclick="riesgocrediticio()" value="Enviar" />
+    <br>
+    <h1 id="resultado"></h1>
+  </form>
+</body>
+
+</html>
