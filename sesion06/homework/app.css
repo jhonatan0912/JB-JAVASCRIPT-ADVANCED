@@ -39,7 +39,10 @@ input {
   padding: .5em;
 }
 
-.user-input-span-container {
+.user-input-span-container,
+.name-input-span-container,
+.password-input-span-container,
+.password-repeat-input-span-container {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -48,10 +51,26 @@ input {
   background-color: #fff;
 }
 
-.user-input-span-container.invalid::after {
+/* 
+.password-repeat-input-span-container {
+  border: 1px solid #000;
+  background-color: #fff;
+  position: relative;
+} */
+
+.user-input-span-container.invalid::after,
+.name-input-span-container.invalid::after,
+.password-repeat-input-span-container.invalid::after {
   content: "❌";
 }
 
-.user-input-span-container.valid::after {
+.user-input-span-container.valid::after,
+.name-input-span-container.valid::after,
+.password-repeat-input-span-container.valid::after {
   content: "✅";
+}
+
+.span-error,
+.user-error {
+  font-size: .9em;
 }

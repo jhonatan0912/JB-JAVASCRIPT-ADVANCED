@@ -19,24 +19,31 @@
         <p id="user-label">Usuario</p>
         <div class="user-input-span-container">
           <input type="text" name="user" id="user">
-          <span id="user-icon"></span>
         </div>
+        <span class="user-error"></span>
       </label>
 
-      <label for="Name">
+      <label for="name">
         <p>Nombre</p>
-        <input type="text" name="name" id="name">
+        <div class="name-input-span-container">
+          <input type="text" name="name" id="name">
+        </div>
+
       </label>
 
       <label for="password">
         <p>Contraseña</p>
-        <input type="password" name="password" id="password">
+        <div class="password-input-span-container">
+          <input type="password" name="password" id="password">
+        </div>
       </label>
 
       <label for="repeat-password">
-        <p>Repetir contraseña</p>
-        <input type="password" name="repeat-password" id="repeat-password">
-        <span id="error-password-repeat"></span>
+        <p id="repeat-password-label">Repetir contraseña</p>
+        <div class="password-repeat-input-span-container">
+          <input type="password" name="repeat-password" id="repeat-password">
+        </div>
+        <div class="span-error"></div>
       </label>
     </div>
     <button type="submit">Enviar</button>
@@ -44,21 +51,67 @@
 
   <script>
     const user = document.getElementById('user')
-    user.addEventListener('change', () => {
+    const name = document.getElementById('name')
+    const password = document.getElementById('password')
+    const passwordRepeat = document.getElementById('repeat-password')
+    user.addEventListener('keydown', () => {
       let userLabel = document.querySelector('.user-input-span-container')
       let userLabelText = document.querySelector('#user-label')
-      if (user.value.length < 4 || user.value.length > 16) {
+      let userError = document.querySelector('.user-error')
+
+      if (user.value.length < 3 || user.value.length > 16 || user.value.length === 0) {
         userLabel.style.border = '2px solid red'
         userLabelText.style.color = "red"
         userLabel.classList.add('invalid')
-        let error = "El usuario tiene que ser de 4 a 16 dígitos y solo contener números, letras y guión bajo"
+        userLabel.classList.remove('valid')
+        userError.innerHTML = "El usuario tiene que ser de 4 a 16 dígitos y <br> solo contener números, letras y guión bajo"
       } else {
         userLabel.style.border = '2px solid #5790e6'
         userLabelText.style.color = "#000"
         userLabel.classList.add('valid')
+        userLabel.classList.remove('invalid')
+        userError.innerHTML = ""
       }
     })
 
+    name.addEventListener('keydown', (e) => {
+      let nameLabel = document.querySelector('.name-input-span-container')
+      if (
+        e.key == "1" ||
+        e.key == "2" ||
+        e.key == "3" ||
+        e.key == "4" ||
+        e.key == "5" ||
+        e.key == "6" ||
+        e.key == "7" ||
+        e.key == "8" ||
+        e.key == "9" ||
+        e.key == "0"
+      ) {
+        alert("No se puede introducir numeros")
+        nameLabel.classList.add('invalid')
+      } else {
+        nameLabel.classList.add('valid')
+      }
+    })
+
+    passwordRepeat.addEventListener('focusout', (e) => {
+      let spanError = document.querySelector('.span-error')
+      let spanLabelText = document.querySelector('#repeat-password-label')
+      let spanLabel = document.querySelector('.password-repeat-input-span-container')
+      if (password.value == passwordRepeat.value) {
+        spanError.innerHTML = ""
+        spanLabelText.style.color = "#000"
+        spanLabel.style.border = "2px solid #5790e6"
+        spanLabel.classList.add('valid')
+      } else {
+        spanError.innerHTML = "Ambas contraseñas deben ser iguales"
+        spanLabelText.style.color = "red"
+        spanLabel.style.border = "2px solid red"
+        spanLabel.classList.add('invalid')
+        spanLabel.classList.remove('valid')
+      }
+    })
 
   </script>
 </body>
