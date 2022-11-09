@@ -35,29 +35,23 @@ button {
 
 input {
   outline: none;
+  border: none;
+  padding: .5em;
 }
 
-.user-input-span {
+.user-input-span-container {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid #000;
+  background-color: #fff;
 }
 
-.user-icon {
-  display: none;
+.user-input-span-container.invalid::after {
+  content: "❌";
 }
 
-.user-invalid {
-  position: absolute;
-  top: 10%;
-  color: white;
-  right: 26%;
-  font-size: .6em;
-  line-height: 1.5em;
-  background: red;
-  border-radius: 50%;
-  width: 15px;
-  text-align: center;
-  font-weight: bolder;
+.user-input-span-container.valid::after {
+  content: "✅";
 }

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./estilos2.css">
+  <link rel="stylesheet" href="./estilos1.css">
   <title>Document</title>
 </head>
 
@@ -160,67 +160,6 @@
     <input type="submit" value="Enviar" id="btnEnviar">
   </form>
   <script>
-
-    const btnEnviar = document.getElementById('btnEnviar');
-
-    btnEnviar.addEventListener('click', (
-      e,
-      carreraProfesional,
-      actitudResponsable,
-      personaInteligente,
-      reaccionProblemaEntornoSocial,
-      influenciaStressEnLaVidaAcademica,
-      nivelEmpatiaCompañeros,
-      tipoEstablecimientoEstudioPrimario,
-      tipoEstablecimientoEstudioSecundario,
-      gradosAcademicos
-    ) => {
-      e.preventDefault();
-      // Datos academicos
-      carreraProfesional = document.getElementById('carrera-profesional').selectedIndex
-      actitudResponsable = document.getElementById('actitud-responsable').selectedIndex
-      personaInteligente = document.getElementById('persona-inteligente').selectedIndex
-      // Fin datos academicos
-
-      // Datos adicionales del alumno
-      reaccionProblemaEntornoSocial = document.getElementById('reaccion-problema-entorno-social').selectedIndex
-      influenciaStressEnLaVidaAcademica = document.getElementById('influencia-stress-vida-academica').selectedIndex
-      nivelEmpatiaCompañeros = document.getElementById('nivel-empatia-compañeros').selectedIndex
-      tipoEstablecimientoEstudioPrimario = document.querySelector('input[name="tipo-establecimiento-estudio-primario"]:checked').value
-      tipoEstablecimientoEstudioSecundario = document.querySelector('input[name="tipo-establecimiento-estudio-secundario"]:checked').value
-      gradosAcademicos = document.querySelectorAll('.grados-academicos:checked').length
-      // Fin datos adicionales del alumno
-
-      let total = 0;
-
-      if (carreraProfesional != 0 && actitudResponsable != 0 && personaInteligente != 0 && reaccionProblemaEntornoSocial && influenciaStressEnLaVidaAcademica != 0 && nivelEmpatiaCompañeros != 0) {
-        total = parseInt(carreraProfesional) +
-          parseInt(actitudResponsable) +
-          parseInt(personaInteligente) +
-          parseInt(reaccionProblemaEntornoSocial) +
-          parseInt(influenciaStressEnLaVidaAcademica) +
-          parseInt(nivelEmpatiaCompañeros) +
-          parseInt(tipoEstablecimientoEstudioPrimario) +
-          parseInt(tipoEstablecimientoEstudioSecundario) +
-          parseInt(gradosAcademicos)
-      }
-      let rendimiento;
-      if (total < 15) {
-        rendimiento = "Bajo"
-      } else if (total < 25) {
-        rendimiento = "Medio"
-      } else if (total < 40) {
-        rendimiento = "Alto"
-      }
-
-      document.write(`
-      <h1>Resultado:</h1>
-      Rendimiento personal y académico: ${rendimiento}
-      <br>
-      Puntaje: ${total}
-      `)
-    })
-
   </script>
 </body>
 

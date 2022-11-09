@@ -16,10 +16,10 @@
 
     <div class="label__container">
       <label for="user">
-        <p>Usuario</p>
-        <div class="user-input-span">
+        <p id="user-label">Usuario</p>
+        <div class="user-input-span-container">
           <input type="text" name="user" id="user">
-          <span class="user-icon">x</span>
+          <span id="user-icon"></span>
         </div>
       </label>
 
@@ -43,31 +43,19 @@
   </form>
 
   <script>
-    let form = document.getElementById('form')
-    // form.addEventListener('submit', (user, name, password, passwordRepeat) => {
-    //   user = document.getElementById('user')
-    //   name = document.getElementById('name')
-    //   password = document.getElementById('password')
-    //   passwordRepeat = document.getElementById('repeat-password')
-
-    //   let errorPasswordRepeat = document.getElementById('error-password-repeat')
-    //   let error;
-    //   if (user.length < 4 || user.length > 16) {
-    //     error = "El usuario tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo"
-    //   }
-    //   if (password != passwordRepeat) {
-    //     error = "Ambas contraseñas deben ser iguales"
-    //     errorPasswordRepeat.innerHTML = error;
-    //   }
-    // })
-
     const user = document.getElementById('user')
     user.addEventListener('change', () => {
+      let userLabel = document.querySelector('.user-input-span-container')
+      let userLabelText = document.querySelector('#user-label')
       if (user.value.length < 4 || user.value.length > 16) {
-        user.style.border = '2px solid red'
+        userLabel.style.border = '2px solid red'
+        userLabelText.style.color = "red"
+        userLabel.classList.add('invalid')
         let error = "El usuario tiene que ser de 4 a 16 dígitos y solo contener números, letras y guión bajo"
       } else {
-        user.style.border = '2px solid #57bde6'
+        userLabel.style.border = '2px solid #5790e6'
+        userLabelText.style.color = "#000"
+        userLabel.classList.add('valid')
       }
     })
 
