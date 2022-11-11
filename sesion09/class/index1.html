@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    class RegVenta {
+      // constructor
+      constructor(xvt1, xvt2, xvt3, xvt4) {
+        this.xvt1 = xvt1
+        this.xvt2 = xvt2
+        this.xvt3 = xvt3
+        this.xvt4 = xvt4
+      }
+
+      // class methods
+      total() {
+        return this.xvt1 + this.xvt2 + this.xvt3 + this.xvt4;
+      }
+      promedio() {
+        return this.total() / 4
+      }
+
+      mayor() {
+        let my;
+        my = this.xvt1
+        if (this.xvt2 > my) {
+          my = this.xvt2
+        }
+        if (this.xvt3 > my) {
+          my = this.xvt3
+        }
+        if (this.xvt4 > my) {
+          my = this.xvt4
+        }
+        return my
+      }
+
+      menor() {
+        let mn;
+        mn = this.xvt1
+        if (this.xvt2 < mn) {
+          mn = this.xvt2
+        }
+        if (this.xvt3 < mn) {
+          mn = this.xvt3
+        }
+        if (this.xvt4 < mn) {
+          mn = this.xvt4
+        }
+        return mn
+      }
+
+      estado() {
+        let resultado;
+        if (this.total() >= 10000) {
+          resultado = "Se llego a la meta"
+        } else {
+          resultado = "No se llego a la meta";
+        }
+        return resultado
+      }
+    }
+
+
+    var xvt1 = parseFloat(prompt("Ingresar la venta 1: "))
+    var xvt2 = parseFloat(prompt("Ingresar la venta 2: "))
+    var xvt3 = parseFloat(prompt("Ingresar la venta 3: "))
+    var xvt4 = parseFloat(prompt("Ingresar la venta 4: "))
+
+    const objVenta = new RegVenta(xvt1, xvt2, xvt3, xvt4);
+
+    document.write(`
+    <h1>Registro de ventas</h1>
+    Venta 1: ${xvt1}
+    <br>
+    Venta 2: ${xvt2}
+    <br>
+    Venta 3: ${xvt3}
+    <br>
+    Venta 4: ${xvt4}
+    <br>
+    <h1>Datos estadísticos</h1>
+    <hr>
+    El total de la venta es: ${objVenta.total()}
+    <br>
+    El promedio de la venta es ${objVenta.promedio()}
+    <br>
+    La venta mayor es: ${objVenta.mayor()}
+    <br>
+    La venta menor es: ${objVenta.menor()}
+    <br>
+    El estado de la venta: ${objVenta.estado()}
+    `)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    class Prestamo {
+      constructor(capital, tasa, periodo) {
+        this.capital = capital
+        this.tasa = tasa
+        this.periodo = periodo
+      }
+
+      interes() {
+        return this.capital * this.tasa * this.periodo
+      }
+
+      montoTotal() {
+        let interes = this.interes()
+        return this.capital + interes
+      }
+
+      cuota() {
+        let montoTotal = this.montoTotal()
+        return montoTotal / this.periodo
+      }
+    }
+
+    let capital = parseInt(prompt("Insertar capital: "))
+    let tasa = parseFloat(prompt("Insertar tasa: "))
+    let periodo = parseInt(prompt("Insertar periodo: "))
+
+    let prestamo = new Prestamo(capital, tasa, periodo)
+
+    document.write(`
+    <h1>Resultados</h1>
+    Capital: S/${capital}
+    <br>
+    Tasa: ${tasa}
+    <br>
+    Periodo: ${periodo} meses
+    <hr>
+    <h1>Resultados de financiamiento</h1>
+    <hr>
+    Interes: ${prestamo.interes()}
+    <br>
+    Monto total: ${prestamo.montoTotal()}
+    <br>
+    Cuota: ${prestamo.cuota().toFixed(2)}
+    `)
+  </script>
+</body>
+
+</html>

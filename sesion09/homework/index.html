@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    class Empleado {
+
+      constructor(codigo, nombre, apellido, correo, cargo) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.cargo = cargo;
+      }
+
+      sueldoBruto() {
+        let sueldo;
+
+        if (this.cargo == "jefe") {
+          sueldo = 5000;
+          console.log(sueldo);
+        } else if (this.cargo == "analista") {
+          sueldo = 4000;
+          console.log(sueldo);
+        } else if (this.cargo == "programador") {
+          sueldo = 3000;
+          console.log(sueldo);
+        } else if (this.cargo == "soporte") {
+          sueldo = 2000;
+          console.log(sueldo);
+        } else if (this.cargo == "asistente") {
+          sueldo = 1500;
+          console.log(sueldo);
+        }
+      }
+
+      descuento() {
+
+      }
+
+      sueldoNeto() {
+
+      }
+    }
+
+    let pedro = new Empleado("123", "pedro", "tyuio", "test@gmail.com", "programador")
+    pedro.sueldoBruto()
+
+    let martin = new Empleado("456", "martin", "qwerty", "test2@gmail.com", "asistente");
+    martin.sueldoBruto()
+  </script>
+</body>
+
+</html>

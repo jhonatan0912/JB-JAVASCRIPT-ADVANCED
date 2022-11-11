@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    class Registro {
+
+      // atributes
+      constructor(ingresoMensual, otrosIngresos, gastosMensuales) {
+        this.ingresoMensual = ingresoMensual;
+        this.otrosIngresos = otrosIngresos;
+        this.gastosMensuales = gastosMensuales;
+      }
+
+      // methods
+      ahorroMensual() {
+
+        let ahorroMensual = (this.ingresoMensual + this.otrosIngresos) - gastosMensuales;
+        return ahorroMensual;
+      }
+      ahorroSemestral() {
+        let ahorroMensual = (this.ingresoMensual + this.otrosIngresos) - gastosMensuales;
+        let ahorroSemestral = ahorroMensual * 6
+        return ahorroSemestral;
+      }
+
+      ahorroAnual() {
+        let ahorroMensual = (this.ingresoMensual + this.otrosIngresos) - gastosMensuales;
+        let ahorroAnual = ahorroMensual * 12
+        return ahorroAnual;
+      }
+    }
+
+    let dni = prompt("Insertar DNI empleado: ")
+    let nombre = prompt("Insertar nombre: ")
+    let ingresoMensual = parseInt(prompt("Insertar ingreso mensual: "))
+    let otrosIngresos = parseInt(prompt("Insertar otros ingresos: "))
+    let gastosMensuales = parseInt(prompt("Insertar gasto mensual: "))
+
+    let empleado = new Registro(ingresoMensual, otrosIngresos, gastosMensuales)
+
+    document.write(`
+    <h1>Prueba de escritorio</h1>
+    Dni empleado: ${dni}
+    <br>
+    Nombre empleado: ${nombre}
+    <br>
+    Ingreso: ${empleado.ingresoMensual}
+    <br>
+    Otros ingresos: ${empleado.otrosIngresos}
+    <br>
+    Gastos: ${empleado.gastosMensuales}
+    <h1>Resultados</h1>
+    Ahorro mensual: ${empleado.ahorroMensual()}
+    <br>
+    Ahorro semestral: ${empleado.ahorroSemestral()}
+    <br>
+    Ahorro anual: ${empleado.ahorroAnual()}
+       
+    `)
+
+
+
+
+
+  </script>
+</body>
+
+</html>
