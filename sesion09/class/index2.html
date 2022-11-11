@@ -27,14 +27,12 @@
         return ahorroMensual;
       }
       ahorroSemestral() {
-        let ahorroMensual = (this.ingresoMensual + this.otrosIngresos) - gastosMensuales;
-        let ahorroSemestral = ahorroMensual * 6
+        let ahorroSemestral = this.ahorroMensual() * 6
         return ahorroSemestral;
       }
 
       ahorroAnual() {
-        let ahorroMensual = (this.ingresoMensual + this.otrosIngresos) - gastosMensuales;
-        let ahorroAnual = ahorroMensual * 12
+        let ahorroAnual = this.ahorroMensual() * 12
         return ahorroAnual;
       }
     }
