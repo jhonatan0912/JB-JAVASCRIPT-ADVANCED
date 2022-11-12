@@ -24,38 +24,65 @@
       sueldoBruto() {
         let sueldo;
 
-        if (this.cargo == "jefe") {
+        if (this.cargo.toLowerCase() == "jefe") {
           sueldo = 5000;
-          console.log(sueldo);
-        } else if (this.cargo == "analista") {
+        } else if (this.cargo.toLowerCase() == "analista") {
           sueldo = 4000;
-          console.log(sueldo);
-        } else if (this.cargo == "programador") {
+        } else if (this.cargo.toLowerCase() == "programador") {
           sueldo = 3000;
-          console.log(sueldo);
-        } else if (this.cargo == "soporte") {
+        } else if (this.cargo.toLowerCase() == "soporte") {
           sueldo = 2000;
-          console.log(sueldo);
-        } else if (this.cargo == "asistente") {
+        } else if (this.cargo.toLowerCase() == "asistente") {
           sueldo = 1500;
-          console.log(sueldo);
         }
+
+        return sueldo;
       }
 
       descuento() {
-
+        return this.sueldoBruto() * 0.125;
       }
 
       sueldoNeto() {
-
+        return this.sueldoBruto() + this.descuento();
       }
     }
 
-    let pedro = new Empleado("123", "pedro", "tyuio", "test@gmail.com", "programador")
-    pedro.sueldoBruto()
+    let codigo = prompt("Insertar codigo: ")
+    let nombre = prompt("Insertar nombres: ")
+    let apellido = prompt("Insertar apellidos: ")
+    let correo = prompt("Insertar correo: ")
+    let cargo = prompt(`Insertar cargo:
+    -jefe
+    -analista
+    -programador
+    -soporte
+    -asistente
+    `)
 
-    let martin = new Empleado("456", "martin", "qwerty", "test2@gmail.com", "asistente");
-    martin.sueldoBruto()
+    const empleado = new Empleado(codigo, nombre, apellido, correo, cargo);
+
+    document.write(`
+    <h1>Datos</h1>
+    <hr>
+    Codigo: ${codigo}
+    <br>
+    Nombre: ${nombre}
+    <br>
+    Apellido: ${apellido}
+    <br>
+    Correo: ${correo}
+    <br>
+    Cargo: ${cargo}
+    <h1>Calculo sueldo:</h1>
+    <hr>
+    Sueldo bruto: S/${empleado.sueldoBruto()}
+    <br>
+    Descuento: S/${empleado.descuento()}
+    <br>
+    Sueldo neto: S/${empleado.sueldoNeto()}
+    `)
+
   </script>
 </body>
 
