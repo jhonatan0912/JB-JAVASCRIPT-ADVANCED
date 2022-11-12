@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    class Alumno {
+      constructor(codigo, nombre, nota1, nota2, nota3, nota4) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.nota1 = nota1;
+        this.nota2 = nota2;
+        this.nota3 = nota3;
+        this.nota4 = nota4;
+      }
+
+      promedio() {
+        let nota1 = this.nota1 * 0.15
+        let nota2 = this.nota2 * 0.2
+        let nota3 = this.nota3 * 0.25
+        let nota4 = this.nota4 * 0.4
+        let promedio = nota1 + nota2 + nota3 + nota4
+        console.log(nota1, nota2, nota3, nota4);
+        return promedio
+      }
+      condicion() {
+        let condition;
+        if (this.promedio() >= 12) {
+          condition = "Aprobado";
+        } else {
+          condition = "Desaprobado"
+        }
+        return condition;
+      }
+      obsequio() {
+        let gift;
+        if (this.promedio() > 17) {
+          gift = "Mochila"
+        } else {
+          gift = "No obtiene un regalo"
+        }
+        return gift
+      }
+    }
+
+    let codigo = prompt("Insertar codigo: ")
+    let nombre = prompt("Insertar nombre: ")
+    let nota1 = parseInt(prompt("Insertar primera nota: "))
+    let nota2 = parseInt(prompt("Insertar segunda nota: "))
+    let nota3 = parseInt(prompt("Insertar tercera nota: "))
+    let nota4 = parseInt(prompt("Insertar cuarta nota: "))
+
+    let alumno = new Alumno(codigo, nombre, nota1, nota2, nota3, nota4)
+
+    document.write(`
+    <h1>Datos</h1>
+    <hr>
+    Codigo: ${codigo}
+    <br>
+    Nombre: ${nombre}
+    <br>
+    Nota 1: ${nota1}
+    <br>
+    Nota 2: ${nota2}
+    <br>
+    Nota 3: ${nota3}
+    <br>
+    Nota 4: ${nota4}
+    <br>
+    <h1>Resultados</h1>
+    <hr>
+    Promedio: ${alumno.promedio()}
+    <br>
+    Condicion: ${alumno.condicion()}
+    <br>
+    Obsequio: ${alumno.obsequio()}
+    <br>
+    `)
+  </script>
+</body>
+
+</html>
