@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NOMBRES</th>
+        <th>APELLIDOS</th>
+      </tr>
+    </thead>
+    <tbody id="res">
+
+    </tbody>
+  </table>
+
+  <script>
+    const data = [
+      {
+        "id": 1,
+        "nombre": "Ana",
+        "apellidos": "Macia Pajas"
+      },
+      {
+        "id": 2,
+        "nombre": "Antonio",
+        "apellidos": "Sueltamelo"
+      },
+      {
+        "id": 3,
+        "nombre": "Elba",
+        "apellidos": "Lazo"
+      }
+    ];
+    let tbody = document.getElementById('res')
+
+    const printData = () => {
+
+      data.forEach((user) => {
+        tbody.innerHTML += `
+      <tr>
+        <td>${user.id}</td>
+        <td>${user.nombre}</td>
+        <td>${user.apellidos}</td>
+      </tr>
+      `
+      })
+    }
+    printData()
+
+  </script>
+</body>
+
+</html>
