@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    let array = [];
+
+    for (let i = 1; i < 11; i++) {
+      let number = parseInt(prompt("Insertar numero: "))
+      array.push(number)
+    }
+    const calcPositivoNegativo = array.map(x => x % 2 == 0 ? `${x} ➡️ Positivo <br>` : `${x} ➡️ Negativo <br>`)
+
+    document.write(`
+    <h1>Resultados:</h1>
+    <hr>
+    `)
+    calcPositivoNegativo.forEach(number => document.write(number))
+  </script>
+</body>
+
+</html>
