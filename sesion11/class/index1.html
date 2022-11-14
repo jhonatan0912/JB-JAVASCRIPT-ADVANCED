@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="estilos1.css" rel="stylesheet" type="text/css">
+  <script src="javascript1.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Registro de Clientes</h1>
+  <form>
+    <table border="1" width="100%">
+      <tr>
+        <td>INGRESE CODIGO: </td>
+        <td><input type="text" id="txtCod" style="width: 100%;"></td>
+      </tr>
+      <tr>
+        <td>INGRESE NOMBRE: </td>
+        <td><input type="text" id="txtNom" style="width: 100%;"></td>
+      </tr>
+      <tr>
+        <td>INGRESE APELLIDO: </td>
+        <td><input type="text" id="txtApe" style="width: 100%;"></td>
+      </tr>
+      <tr>
+        <td>INGRESE DIRECCION: </td>
+        <td><input type="text" id="txtDir" style="width: 100%;"></td>
+      </tr>
+      <tr>
+        <td>INGRESE TELEFONO: </td>
+        <td><input type="text" id="txtTel" style="width: 100%;"></td>
+      </tr>
+      <tr>
+        <td>
+          <p id="lblReg">Nº Reg:</p>
+        </td>
+
+        <td><input type="button" value="Guardar" onclick="agregar(txtCod.value , txtNom.value , txtApe.value,
+                         txtDir.value,txtTel.value)">
+          <input type="reset" value="Limpiar">
+          <input type="button" value="Consulta" onclick="consulta()">
+          <input type="button" value="Reporte" onclick="listado()"><br><br>
+          <input type="button" value="Eliminar" onclick="elimina()">
+          <input type="button" value="Siguiente" onclick="siguiente()">
+          <input type="button" value="Anterior" onclick="anterior()">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>
