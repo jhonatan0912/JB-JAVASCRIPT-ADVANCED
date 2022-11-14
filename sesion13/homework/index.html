@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <title>Angular app</title>
+  <style>
+    .no-discount {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <strong>Importe sin descuento:</strong> {{pago}}
+    <br>
+    <strong>Descuento:</strong> {{descuento}}
+    <br>
+    <strong>Importe neto a pagar:</strong> {{pagoNeto}}
+  </div>
+
+  <script>
+    let app = angular.module('myApp', []);
+
+    app.controller('myCtrl', function ($scope) {
+      $scope.km;
+      $scope.pago;
+      $scope.descuento;
+      $scope.pagoNeto;
+
+      $scope.km = parseInt(prompt("Insertar los kilometros recorridos: "))
+
+      if ($scope.km <= 0) {
+        alert("Numero invalido");
+      }
+      if ($scope.km <= 300) {
+        $scope.pago = 250;
+      } else if ($scope.km > 300 && $scope.km <= 1000) {
+        $scope.pago = 250 + ($scope.km - 300) * 30
+      } else {
+        $scope.pago = 250 + 700 * 30 + ($scope.km - 1000) * 20
+      }
+
+      if ($scope.pago > 500) {
+        $scope.descuento = $scope.pago * 0.10
+        $scope.pagoNeto = $scope.pago - $scope.descuento
+      } else {
+        $scope.descuento = `No obtiene descuento`
+        $scope.pagoNeto = $scope.pago
+      }
+
+    })
+
+  </script>
+</body>
+
+</html>
