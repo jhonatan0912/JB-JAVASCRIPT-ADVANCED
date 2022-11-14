@@ -28,13 +28,12 @@ function listado() {
 
   for (let x = 0; x < vCod.length; x++) {
     lista.document.write
-      (vCod[x] + "-" + vNom[x] + "-" + vApe[x] + "-" + vDir[x] + "-" + vTel[x])
-
-    lista.document.write("<h2>Fin de reporte</h2><br><hr>")
-
-    lista.document.write(`<input type="button" value="Cerrar" onclick="opener.cerrar(window)">`)
-
+      (vCod[x] + "-" + vNom[x] + "-" + vApe[x] + "-" + vDir[x] + "-" + vTel[x] + "<br>")
   }
+  lista.document.write("<h2>Fin de reporte</h2><br><hr>")
+
+  lista.document.write(`<input type="button" value="Cerrar" onclick="opener.cerrar(window)">`)
+
 }
 function cerrar(obj) {
   obj.close()
