@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <title>Document</title>
+  <style>
+    form {
+      border: 1px solid #202020;
+      width: 20%;
+      padding: 1em;
+      margin: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    button {
+      width: 20%;
+      margin: auto;
+      margin-top: 1em;
+      background-color: rgb(7, 194, 7);
+      border: none;
+      padding: 1em;
+      color: white;
+      font-weight: bolder;
+      cursor: pointer;
+    }
+    .result-container{
+      text-align: center;
+      margin-top: 3em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <form>
+      <h1>Formulario</h1>
+      <label for="codigoEmpleado">
+        <p>Codigo empleado:</p>
+        <input type="text" ng-model="codigoEmpleado">
+      </label>
+
+      <label for="horasTrabajadas">
+        <p>Numero horas trabajadas:</p>
+        <input type="number" ng-model="horasTrabajadas">
+      </label>
+
+      <label for="tarifaPorHoras">
+        <p>Tarifa por horas:</p>
+        <input type="number" ng-model="tarifaPorHoras">
+      </label>
+
+      <button ng-click="send()">Send</button>
+    </form>
+    <div class="result-container">
+      <h1>Resultados:</h1>
+      <p>Codigo: {{codigoEmpleado}}</p>
+      <p>Sueldo basico: {{sueldoBasico?sueldoBasico:" "}}</p>
+      <p>Descuento: {{descuento?descuento:" "}}</p>
+      <p>Sueldo neto: {{sueldoNeto?sueldoNeto:" "}}</p>
+    </div>
+
+  </div>
+
+  <script>
+    var app = angular.module("myApp", []);
+
+    app.controller("myCtrl", function ($scope) {
+      $scope.codigoEmpleado;
+      $scope.horasTrabajadas;
+      $scope.tarifaPorHoras;
+      $scope.sueldoBasico;
+      $scope.descuento;
+      $scope.sueldoNeto;
+
+      $scope.send = function () {
+        $scope.sueldoBasico = $scope.horasTrabajadas * $scope.tarifaPorHoras;
+
+        if ($scope.sueldoBasico < 500) {
+          $scope.descuento = 0
+        } else if ($scope.sueldoBasico > 501 && $scope.sueldoBasico < 1000) {
+          $scope.descuento = $scope.sueldoBasico * 0.02
+        } else if ($scope.sueldoBasico > 1001 && $scope.sueldoBasico < 4000) {
+          $scope.descuento = $scope.sueldoBasico * 0.08
+        } else if ($scope.sueldoBasico > 4001 && $scope.sueldoBasico < 8000) {
+          $scope.descuento = $scope.sueldoBasico * 0.15
+        } else if ($scope.sueldoBasico > 8001 && $scope.sueldoBasico < 10000) {
+          $scope.descuento = $scope.sueldoBasico * 0.21
+        } else if ($scope.sueldoBasico > 10000) {
+          $scope.descuento = $scope.sueldoBasico * 0.3
+        }
+        $scope.sueldoNeto = $scope.sueldoBasico - $scope.descuento
+      }
+      $scope.send()
+    })
+  </script>
+</body>
+
+</html>
