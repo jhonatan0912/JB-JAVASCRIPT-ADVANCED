@@ -41,21 +41,24 @@
         "apellidos": "Lazo"
       }
     ];
+
     let tbody = document.getElementById('res')
 
-    const printData = () => {
+    data.map(user => tbody.innerHTML += `<tr><td>${user.id}</td><td>${user.nombre}</td><td>${user.apellidos}</td></tr>`)
 
-      data.forEach((user) => {
-        tbody.innerHTML += `
-      <tr>
-        <td>${user.id}</td>
-        <td>${user.nombre}</td>
-        <td>${user.apellidos}</td>
-      </tr>
-      `
-      })
-    }
-    printData()
+    // const printData = () => {
+
+    //   data.forEach((user) => {
+    //     tbody.innerHTML += `
+    //   <tr>
+    //     <td>${user.id}</td>
+    //     <td>${user.nombre}</td>
+    //     <td>${user.apellidos}</td>
+    //   </tr>
+    //   `
+    //   })
+    // }
+    // printData()
 
   </script>
 </body>
