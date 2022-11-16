@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    const json = [
+      { "type": "header", "version": "5.2.0", "comment": "Export to JSON plugin for PHPMyAdmin" },
+      { "type": "database", "name": "bdvehiculo" },
+      {
+        "type": "table", "name": "vehiculo", "database": "bdvehiculo", "data":
+          [
+            { "placa": "nis001", "marca": "nissan", "modelo": "sentra", "precio": "15000.00", "color": "rojo oscuro", "fabricacion": "2020", "foto": "sentra.jpg" },
+            { "placa": "pra001", "marca": "Toyota", "modelo": "Prado", "precio": "50000.00", "color": "negro", "fabricacion": "2022", "foto": "prado.jpg" },
+            { "placa": "rav001", "marca": "Toyota", "modelo": "Rav4", "precio": "28000.00", "color": "Rojo", "fabricacion": "2017", "foto": "rav4.jpg" },
+            { "placa": "san001", "marca": "hyundai", "modelo": "santa fe", "precio": "40000.00", "color": "negro", "fabricacion": "2020", "foto": "santafe.jpg" },
+            { "placa": "sor001", "marca": "kia", "modelo": "sorento", "precio": "35000.00", "color": "blanco", "fabricacion": "2022", "foto": "sorento.jpg" }
+          ]
+      }
+    ]
+
+    const data = json[2].data;
+
+    document.write(`<h1>Resultados:</h1>`)
+    data.map(x => {
+      console.log(x.placa)
+      console.log(x.marca)
+      console.log(x.modelo)
+      console.log(x.precio)
+      console.log(x.color)
+      console.log(x.fabricacion)
+      console.log(x.foto)
+
+      document.write(`
+      <hr>
+      Placa: ${x.placa}
+      <br>
+      Marca: ${x.marca}
+      <br>
+      Modelo: ${x.modelo}
+      <br>
+      Precio: ${x.precio}
+      <br>
+      Color: ${x.color}
+      <br>
+      Fabricacion: ${x.fabricacion}
+      <br>
+      <img src="./${x.foto}"/>
+      <hr>
+      <br>
+      `)
+    })
+  </script>
+</body>
+
+</html>

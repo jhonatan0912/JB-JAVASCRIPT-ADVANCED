@@ -1,0 +1,47 @@
+[
+  {
+    "placa": "nis001",
+    "marca": "nissan",
+    "modelo": "sentra",
+    "precio": "15000.00",
+    "color": "rojo oscuro",
+    "fabricacion": "2020",
+    "foto": "sentra.jpg"
+  },
+  {
+    "placa": "pra001",
+    "marca": "Toyota",
+    "modelo": "Prado",
+    "precio": "50000.00",
+    "color": "negro",
+    "fabricacion": "2022",
+    "foto": "prado.jpg"
+  },
+  {
+    "placa": "rav001",
+    "marca": "Toyota",
+    "modelo": "Rav4",
+    "precio": "28000.00",
+    "color": "Rojo",
+    "fabricacion": "2017",
+    "foto": "rav4.jpg"
+  },
+  {
+    "placa": "san001",
+    "marca": "hyundai",
+    "modelo": "santa fe",
+    "precio": "40000.00",
+    "color": "negro",
+    "fabricacion": "2020",
+    "foto": "santafe.jpg"
+  },
+  {
+    "placa": "sor001",
+    "marca": "kia",
+    "modelo": "sorento",
+    "precio": "35000.00",
+    "color": "blanco",
+    "fabricacion": "2022",
+    "foto": "sorento.jpg"
+  }
+]

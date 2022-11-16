@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>Crear un objeto en JavaScript mediante JSON</h2>
+
+  <script>
+    let i;
+    let datos = '{"vehiculo":[' +
+      '{"placa":"pra001","marca":"toyota","modelo":"prado","precio":50000 },' +
+      '{"placa":"sor001","marca":"kia","modelo":"sorento","precio":40000 },' +
+      '{"placa":"nis001","marca":"nissan","modelo":"sentra","precio":15000 },' +
+      '{"placa":"rav001","marca":"toyota","modelo":"rav4","precio":32000 },' +
+      '{"placa":"san001","marca":"hyundai","modelo":"santa fe","precio":45000},' +
+      '{"placa":"suz001","marca":"suzuki","modelo":"grandnomade","precio":28000}]}';
+    const obj = JSON.parse(datos)
+    document.write(`<h3>Placa Marca Modelo Precio</h3>`)
+
+    for (i = 0; i < 6; i++) {
+      document.write(obj.vehiculo[i].placa + " " + obj.vehiculo[i].marca + " " + obj.vehiculo[i].modelo + " " + obj.vehiculo[i].precio)
+      document.write("<br>")
+    }
+  </script>
+</body>
+
+</html>
