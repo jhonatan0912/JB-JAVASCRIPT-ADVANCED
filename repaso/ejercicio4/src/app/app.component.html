@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <form class="flex flex-column border w-3/4 m-auto p-4">
+      <h1 class="text-3xl text-center font-black">Calculadora sueldos</h1>
+      <label for="sueldo1">
+        <p>Sueldo 1</p>
+        <input class="form-control" type="number" name="sueldo1" #sueldo1>
+      </label>
+      <label for="sueldo2">
+        <p>Sueldo 2</p>
+        <input class="form-control" type="number" name="sueldo2" #sueldo2>
+      </label>
+      <label for="sueldo3">
+        <p>Sueldo 3</p>
+        <input class="form-control" type="number" name="sueldo3" #sueldo3>
+      </label>
+      <label for="sueldo4">
+        <p>Sueldo 4</p>
+        <input class="form-control" type="number" name="sueldo4" #sueldo4>
+      </label>
+
+      <button class="btn btn-success d-block m-auto my-4"
+        (click)="calcular(sueldo1,sueldo2,sueldo3,sueldo4)">Calcular</button>
+    </form>
+
+    <div class="mt-5">
+      <h1 class="font-black text-3xl">Resultados</h1>
+      <div>
+        <p>Sueldo 1: {{sld1}}</p>
+        <p>Sueldo 2: {{sld2}}</p>
+        <p>Sueldo 3: {{sld3}}</p>
+        <p>Sueldo 4: {{sld4}}</p>
+        <p>Suma total de sueldos: {{totalSueldos}}</p>
+        <p>Promedio: {{promedio}}</p>
+        <p>sueldo mayor: {{mayor}}</p>
+        <p>sueldo menor: {{menor}}</p>
+        <p>Sueldos mayores que el sueldo minimo: {{msmv}}</p>
+      </div>
+    </div>
+  </div>
+</div>
