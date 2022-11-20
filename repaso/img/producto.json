@@ -1,0 +1,13 @@
+[
+{"type":"header","version":"5.2.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"bdventa"},
+{"type":"table","name":"producto","database":"bdventa","data":
+[
+{"codigo":"00002","nombre":"Case","marca":"Halion","modelo":"desktop","precio":"300.00","stcck":"150","fabricacion":"2021","foto":"case.jpg"},
+{"codigo":"00003","nombre":"disco duro","marca":"Western","modelo":"Green","precio":"250.00","stcck":"200","fabricacion":"2022","foto":"disco.jpg"},
+{"codigo":"00004","nombre":"memoria","marca":"toshiba","modelo":"DDR4","precio":"400.00","stcck":"50","fabricacion":"2022","foto":"memoria.jpg"},
+{"codigo":"00005","nombre":"microprocesador","marca":"AMD","modelo":"Ryzen 5","precio":"600.00","stcck":"50","fabricacion":"2022","foto":"micro.jpg"},
+{"codigo":"001","nombre":"placa","marca":"MSI","modelo":"Gamer","precio":"500.00","stcck":"100","fabricacion":"2022","foto":"placa.jpg"}
+]
+}
+]

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Mantenimiento de datos</h1>
+
+  <form>
+    <label for="placa">
+      <p>Placa</p>
+      <input type="text" id="placa">
+    </label>
+    <label for="marca">
+      <p>Marca</p>
+      <input type="text" id="marca">
+    </label>
+    <label for="modelo">
+      <p>Modelo</p>
+      <input type="text" id="modelo">
+    </label>
+    <label for="precio">
+      <p>Precio</p>
+      <input type="text" id="precio">
+    </label>
+    <label for="color">
+      <p>Color</p>
+      <input type="text" id="color">
+    </label>
+    <label for="fabricacion">
+      <p>Fabricacion</p>
+      <input type="text" id="fabricacion">
+    </label>
+
+    <button id="btn-añadir" type="button"
+      onclick="add(placa.value,marca.value,modelo.value,precio.value,color.value,fabricacion.value)">
+      Crear
+    </button>
+    <button type="reset">
+      Limpiar
+    </button>
+    <button type="button" onclick="list()">Leer</button>
+    <input type="button" value="Eliminar" onclick="eliminar()">
+
+  </form>
+
+  <script>
+    // placa, marca, modelo, precio, color, fabricacion
+
+    let arrPlaca = []
+    let arrMarca = []
+    let arrModelo = []
+    let arrPrecio = []
+    let arrColor = []
+    let arrFabricacion = []
+
+    let count = 0;
+
+    function add(placa, marca, modelo, precio, color, fabricacion) {
+      arrPlaca.push(placa)
+      arrMarca.push(marca)
+      arrModelo.push(modelo)
+      arrPrecio.push(precio)
+      arrColor.push(color)
+      arrFabricacion.push(fabricacion)
+
+      count++
+      window.alert("Registro guardado")
+    }
+
+    // console.log(arrPlaca, arrMarca, arrModelo, arrPrecio, arrColor, arrFabricacion);
+
+    function list() {
+      let lista = window.open("", "ventana", "width=700px", "height=500")
+
+      lista.document.write(`
+      <h1>REPORTE DE PRODUCTOS</h1>
+      PLACA MARCA MODELO PRECIO COLOR FABRICACION
+      <br>
+      `)
+      for (let x = 0; x < arrPlaca.length; x++) {
+        lista.document.write
+          (arrPlaca[x] + "-" + arrMarca[x] + "-" + arrModelo[x] + "-" + arrPrecio[x] + "-" + arrColor[x] + "-" + arrFabricacion[x] + "<br>")
+      }
+      lista.document.write("<h2>Fin de reporte</h2><br><hr>")
+
+      lista.document.write(`<input type="button" value="Cerrar" onclick="opener.cerrar(window)">`)
+    }
+
+    function cerrar(obj) {
+      obj.close()
+    }
+
+    function llenar(xReg) {
+      document.getElementById('placa').value = arrPlaca[xReg]
+      document.getElementById('marca').value = arrMarca[xReg]
+      document.getElementById('modelo').value = arrModelo[xReg]
+      document.getElementById('precio').value = arrPrecio[xReg]
+      document.getElementById('color').value = arrColor[xReg]
+      document.getElementById('fabricacion').value = arrFabricacion[xReg]
+    }
+
+    function eliminar() {
+      var xProd = prompt("Que producto desea eliminar?").trim()
+      for (let x = 0; x < arrPlaca.length; x++) {
+        if (xProd == arrPlaca[x]) {
+          llenar(x)
+
+          var res = confirm("Seguro de eliminar? ")
+
+          if (res) {
+            arrPlaca.splice(x, 1)
+            arrMarca.splice(x, 1)
+            arrModelo.splice(x, 1)
+            arrPrecio.splice(x, 1)
+            arrColor.splice(x, 1)
+            arrFabricacion.splice(x, 1)
+            llenar(0)
+          }
+          break;
+        }
+
+      }
+    }
+
+  </script>
+</body>
+
+</html>

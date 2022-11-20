@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    class Empleado {
+      constructor(edad1, edad2, edad3, edad4) {
+        this.edad1 = edad1;
+        this.edad2 = edad2;
+        this.edad3 = edad3;
+        this.edad4 = edad4;
+      }
+
+      promedio() {
+        return (this.edad1 + this.edad2 + this.edad3 + this.edad4) / 4;
+      }
+      mayor() {
+        return Math.max(this.edad1, this.edad2, this.edad3, this.edad4)
+      }
+      menor() {
+        return Math.min(this.edad1, this.edad2, this.edad3, this.edad4)
+      }
+    }
+
+    let edad1 = parseInt(prompt("Insertar edad 1: "))
+    let edad2 = parseInt(prompt("Insertar edad 2: "))
+    let edad3 = parseInt(prompt("Insertar edad 3: "))
+    let edad4 = parseInt(prompt("Insertar edad 4: "))
+
+    let empleado = new Empleado(edad1, edad2, edad3, edad4);
+
+    document.write(`
+    <h1>Resultados:</h1> 
+    Edad 1: ${edad1}
+    <br>
+    Edad 2: ${edad2}
+    <br>
+    Edad 3: ${edad3}
+    <br>
+    Edad 4: ${edad4}
+    <br>
+    Promedio: ${empleado.promedio()}
+    <br>
+    Mayor: ${empleado.mayor()}
+    <br>
+    Menor: ${empleado.menor()}
+    `)
+
+
+  </script>
+</body>
+
+</html>
